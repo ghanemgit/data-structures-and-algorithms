@@ -4,7 +4,9 @@
 ### Write a function called BinarySearch which takes in 2 parameters: a sorted array and the search key. Without utilizing any of the built-in methods available to your language, return the index of the array’s element that is equal to the value of the search key, or -1 if the element is not in the array.
 
 ## Whiteboard Process
-![BinarySearch](https://user-images.githubusercontent.com/97638932/155886938-f19de30d-08ce-4490-9393-39f2b383b31f.png)
+
+![BinarySearch](https://user-images.githubusercontent.com/97638932/156354316-7dce9cd2-d029-4077-ad5f-2a6fdd4582ec.png)
+
 
 
 ## Approach & Efficiency
