@@ -3,9 +3,211 @@
  */
 package Challenge05;
 
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertLinesMatch;
 
 class AppTest {
+
+
+    LinkedList test1;
+    LinkedList test2;
+    LinkedList test3;
+    LinkedList test4;
+
+    @BeforeEach
+    void setUp() {
+        test1 = new LinkedList();
+        test2 = new LinkedList();
+        test3 = new LinkedList();
+        test4 = new LinkedList();
+    }
+
+    @Test
+    @DisplayName("Insert last Linked list test")
+    void appendTest() {
+
+        List<String> exceptedList = new ArrayList<String>();
+        List<String> actualList = new ArrayList<String>();
+        String excp1 = "{ 1 } -> { 3 } -> { 2 } -> { 5 } -> null";
+        String excp2 = "{ 1 } -> null";
+
+        //add excepted value to array list
+        exceptedList.add(excp1);
+        exceptedList.add(excp2);
+
+        //filling linked list, these lines' evenness user input process
+        int i = 1;
+        test1.insertLast(i);
+        i += 2;
+        test1.insertLast(i);
+        i -= 1;
+        test1.insertLast(i);
+
+        //insert the value that will be added to linked list for testing issues
+        test1.insertLast(5);
+        actualList.add(test1.to_string());
+
+        //filling linked list, these lines' evenness user input process
+
+        test2.insertLast(1);
+
+        //insert the value that will be added to linked list for testing issues
+        actualList.add(test2.to_string());
+
+
+        assertLinesMatch(exceptedList, actualList);
+
+    }
+
+    @Test
+    @DisplayName("Insert before Linked list tests")
+    void insertBeforeTest() {
+        List<String> exceptedList = new ArrayList<String>();
+        List<String> actualList = new ArrayList<String>();
+        String excp1 = "{ 1 } -> { 5 } -> { 3 } -> { 2 } -> null";
+        String excp2 = "{ 5 } -> { 1 } -> { 3 } -> { 2 } -> null";
+        String excp3 = "{ 1 } -> { 5 } -> { 2 } -> { 2 } -> null";
+        String excp4 = "{ 1 } -> { 3 } -> { 2 } -> null";
+
+        //add excepted value to array list
+        exceptedList.add(excp1);
+        exceptedList.add(excp2);
+        exceptedList.add(excp3);
+        exceptedList.add(excp4);
+
+        //filling linked list, these lines' evenness user input process
+        int i = 1;
+        test1.insertLast(i);
+        i += 2;
+        test1.insertLast(i);
+        i -= 1;
+        test1.insertLast(i);
+
+        //insert the value and new value that will be added to linked list for testing issues
+        test1.insertBefore(3, 5);
+        actualList.add(test1.to_string());
+
+
+        //filling linked list, these lines' evenness user input process
+        i -= 1;
+        test2.insertLast(i);
+        i += 2;
+        test2.insertLast(i);
+        i -= 1;
+        test2.insertLast(i);
+
+
+        //insert the value and new value that will be added to linked list for testing issues
+        test2.insertBefore(1, 5);
+        actualList.add(test2.to_string());
+
+
+        //filling linked list, these lines' evenness user input process
+        i -= 1;
+        test3.insertLast(i);
+        i += 1;
+        test3.insertLast(i);
+        test3.insertLast(i);
+
+
+        //insert the value and new value that will be added to linked list for testing issues
+        test3.insertBefore(2, 5);
+        actualList.add(test3.to_string());
+
+
+        //filling linked list, these lines' evenness user input process
+        i -= 1;
+        test4.insertLast(i);
+        i += 2;
+        test4.insertLast(i);
+        i -= 1;
+        test4.insertLast(i);
+
+
+        //insert the value and new value that will be added to linked list for testing issues
+        test4.insertBefore(4, 5);
+        actualList.add(test4.to_string());
+
+        assertLinesMatch(exceptedList, actualList);
+    }
+
+    @Test
+    @DisplayName("Insert After Linked list tests")
+    void insertAfterTest(){
+        List<String> exceptedList = new ArrayList<String>();
+        List<String> actualList = new ArrayList<String>();
+        String excp1 = "{ 1 } -> { 3 } -> { 5 } -> { 2 } -> null";
+        String excp2 = "{ 1 } -> { 3 } -> { 2 } -> { 5 } -> null";
+        String excp3 = "{ 1 } -> { 2 } -> { 5 } -> { 2 } -> null";
+        String excp4 = "{ 1 } -> { 3 } -> { 2 } -> null";
+
+        //add excepted value to array list
+        exceptedList.add(excp1);
+        exceptedList.add(excp2);
+        exceptedList.add(excp3);
+        exceptedList.add(excp4);
+
+        //filling linked list, these lines' evenness user input process
+        int i = 1;
+        test1.insertLast(i);
+        i += 2;
+        test1.insertLast(i);
+        i -= 1;
+        test1.insertLast(i);
+
+        //insert the value and new value that will be added to linked list for testing issues
+        test1.insertAfter(3, 5);
+        actualList.add(test1.to_string());
+
+
+        //filling linked list, these lines' evenness user input process
+        i -= 1;
+        test2.insertLast(i);
+        i += 2;
+        test2.insertLast(i);
+        i -= 1;
+        test2.insertLast(i);
+
+
+        //insert the value and new value that will be added to linked list for testing issues
+        test2.insertAfter(2, 5);
+        actualList.add(test2.to_string());
+
+
+        //filling linked list, these lines' evenness user input process
+        i -= 1;
+        test3.insertLast(i);
+        i += 1;
+        test3.insertLast(i);
+        test3.insertLast(i);
+
+
+        //insert the value and new value that will be added to linked list for testing issues
+        test3.insertAfter(2, 5);
+        actualList.add(test3.to_string());
+
+
+        //filling linked list, these lines' evenness user input process
+        i -= 1;
+        test4.insertLast(i);
+        i += 2;
+        test4.insertLast(i);
+        i -= 1;
+        test4.insertLast(i);
+
+
+        //insert the value and new value that will be added to linked list for testing issues
+        test4.insertAfter(4, 5);
+        actualList.add(test4.to_string());
+
+        assertLinesMatch(exceptedList, actualList);
+    }
 
 }
