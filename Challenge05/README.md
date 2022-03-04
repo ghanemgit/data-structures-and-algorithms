@@ -5,8 +5,8 @@
 ### Create a new data structure type(Linked list) containing three methods in LinkedList class and declare its properties , also this method to implementation append, insert before and insert after process.
 
 ## Whiteboard Process
-![linkedListInsertion](linkedListInsertion.png)
 
+![linkedListInsertion](assert/linkedListInsertion.png)
 
 ## Approach & Efficiency
 ### The approach I followed it is, first I tried to understand the problem right stand because the generation of the method of this type in data structure depends on problem domain, then I start to writing algorithm I will followed it , and al whiteboard other process as showed in picture below then I start to solve that's method by method.
