@@ -12,22 +12,40 @@ public class App {
         Scanner input = new Scanner(System.in);
         LinkedList list = new LinkedList();
         int value;
-        /* Note: you can use insertLast() method to insert number at last and at first only if your linked list is empty
-                 otherwise you have to use insertFirst() method to insert at the first whenever you want.
-         */
 
-        for (int i = 0; i < 4; i++) {
+        // To insert three number to linked list
+        for (int i = 0; i < 1; i++) {
             System.out.println("Is the linked list empty => "+list.isEmpty());
             System.out.println("Please enter a number to add to linked list");
             value = input.nextInt();
-            list.insertFirst(value);
+            //list.insertFirst(value);
+            // or insert last method
+            list.insertLast(value);
         }
 
-        System.out.println("Please enter a number to check if added to linked list");
-        int value2 = input.nextInt();
-        String s = list.includes(value2)? "The number added":"The number is not found";
-        System.out.println(s);
-        input.close();
+        //this four lines to check If number existing or not(include method)
+//        System.out.println("Please enter a number to check if added to linked list");
+//        int value2 = input.nextInt();
+//        String s = list.includes(value2)? "The number added":"The number is not found";
+//        System.out.println(s);
+
+        //this four line to add number before any existing number(add before method)
+//        System.out.println("To use insert before features please enter the new number then the number you want to insert before");
+//        int value3 = input.nextInt();
+//        int value4 = input.nextInt();
+//        list.insertBefore(value3,value4);
+
+        //this four line to add number after any existing number(add after method)
+//        System.out.println("To use insert after features please enter the new number then the number you want to insert after");
+//        int value6 = input.nextInt();
+//        int value5 = input.nextInt();
+//        list.insertAfter(value6,value5);
+
+        // this line to print out whole linked list
         System.out.println("Your linked list is => "+list.to_string());
+
+
+        input.close();
+
     }
 }

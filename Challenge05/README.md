@@ -2,17 +2,20 @@
 ### Type of data structure allow us to store a collection of data not next to each other, and we can link the data with each other by pointer that point on the location of next data.
 
 ## Challenge
-### Create a new data structure type(Linked list) containing two classes Node and LinkedList and declare its properties , also I have to create method to implementation insert, include and tostring process.
+### Create a new data structure type(Linked list) containing three methods in LinkedList class and declare its properties , also this method to implementation append, insert before and insert after process.
+
+## Whiteboard Process
+![linkedListInsertion](linkedListInsertion.png)
+
 
 ## Approach & Efficiency
-### The approach I followed it is, first I tried to understand the problem right stand because the generation of the method of this type in data structure depends on problem domain, then I start to solve that's method by method.
+### The approach I followed it is, first I tried to understand the problem right stand because the generation of the method of this type in data structure depends on problem domain, then I start to writing algorithm I will followed it , and al whiteboard other process as showed in picture below then I start to solve that's method by method.
 ### The Big O for this Challenge is different from method to other, I will mention that in section below.
 
 ## API
-### 1) Insert: I divided this method into two method because the challenge description dose not mentioned what the type of insert(I mean at the beginning or at the last ), In this method the Big O type is Linear O(n) because the method scan its input.
-- Insert First.
-- Insert Last.
+### 1) Append:This method created to insert number at last of linked list, In this method the Big O type is Linear O(n) because the method scan its input.
 
-### 2) Include : this method check the given key if founded (added) in the linked list or what and return true or false. this method take also linear B(n) type because scan its input.
 
-### 3) To String: this method to print out whole the linked list with specific pattern.The Big O type in this method is constant because the method ignore the input.
+### 2) Insert before : this method take two number first the number you want to add the new number before it and the new number itself. this method take also linear B(n) type because scan its input.
+
+### 3) Insert before : this method take two number first the number you want to add the new number after it and the new number itself. this method take also linear B(n) type because scan its input.
