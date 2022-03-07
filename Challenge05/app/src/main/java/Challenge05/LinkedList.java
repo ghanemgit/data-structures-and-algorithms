@@ -58,30 +58,36 @@ public class LinkedList {
             string += "{ " + pointer.data + " } -> ";
             pointer = pointer.next;
         }
-        string += pointer ;
+        string += pointer;
         return string;
     }
 
-    public void insertBefore(int value,int newValue) {
+    public void insertBefore(int value, int newValue) {
         Node newNode = new Node(newValue);
         Node temp = this.head;
-        if (isEmpty() || temp.data == value) {    // check the condition of list if empty or not & the second condition especially created to insert new value before first value in the list
-            String s = isEmpty()? "Your linked list is empty please fill it":"";//this line to print out this sentence if list is empty else will print empty string
+        /*
+        check the condition of list if empty or not &
+        the second condition especially created to insert new value before first value in the list
+        */
+        if (isEmpty() || temp.data == value) {
+
+            //this line to print out this sentence if list is empty else will print empty string
+            String s = isEmpty() ? "Your linked list is empty please fill it" : "";
             System.out.println(s);
             insertFirst(newValue);
         } else if (includes(value)) {
-                newNode.data = newValue;
-                while (temp.next.data != value) {
-                    temp = temp.next;
-                }
-                newNode.next = temp.next;
-                temp.next = newNode;
+            newNode.data = newValue;
+            while (temp.next.data != value) {
+                temp = temp.next;
+            }
+            newNode.next = temp.next;
+            temp.next = newNode;
         } else {
             System.err.println("Sorry, the number you want insert before is not found");
         }
     }
 
-    public void insertAfter(int value,int newValue ) {
+    public void insertAfter(int value, int newValue) {
 
 
         if (isEmpty()) {
@@ -101,5 +107,54 @@ public class LinkedList {
         } else {
             System.err.println("Sorry, the number you want insert before is not found");
         }
+    }
+
+    public int kthFromEnd(int k) {
+
+        int result = 0;//this variable to store the answer
+        int counter = 0;//this counter to know how much item in our linked list(size or length)
+        int secondCounter = 0;
+        /*
+        when this new counter is reach the k value that will work to stop the loop and let us take the result,
+        that done by simple expression (counter - newCounter) must equal the k value to stop looping.
+         */
+
+
+        //If the list empty go to insert function and let user insert
+        if (isEmpty())
+            System.out.println("Sorry the linked list is empty");
+
+        else if (k >= 0){
+            //create new pointer and assign it to head value to start from beginning
+            Node pointer = this.head;
+
+            /*
+            if we don't reach the end still to move pointer node after node, Meanwhile increase the counter by
+            one each loop to determine the numbers of item we have in our linked list
+             */
+            while (pointer.next != null)
+            {
+                counter++;
+                pointer = pointer.next;
+            }
+
+            if (k > counter)
+                System.err.println("Sorry the number you try to get out of range");
+            else if ( k == 0 )
+                result = pointer.data;//because the last value for pointer after finish the loop, is the last one in linked list
+            else {
+                pointer = this.head;//return the pointer to start(head) point
+                while ((counter-secondCounter) != k){
+                    secondCounter++;
+
+                    pointer =pointer.next;
+                }
+                result = pointer.data;
+            }
+        }else {
+            System.out.println("Sorry, you entered negative number");
+        }
+
+        return result;
     }
 }
