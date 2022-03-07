@@ -4,7 +4,7 @@
 
 
 ## Whiteboard Process
-![linked-list-kth](assert/linkedListInsertion.png)
+![linked-list-kth](assert/linked-list-kth.png)
 
 ## Approach & Efficiency
 
