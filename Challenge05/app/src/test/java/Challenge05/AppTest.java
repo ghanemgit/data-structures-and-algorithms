@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertLinesMatch;
 
 class AppTest {
@@ -210,4 +211,27 @@ class AppTest {
         assertLinesMatch(exceptedList, actualList);
     }
 
+    @Test
+    @DisplayName("kth From End Test")
+    void kthFromEndTest(){
+        int excp1=2,excp2=3;
+
+        int i = 1;
+        test1.insertLast(i);
+        i += 2;
+        test1.insertLast(i);
+        i += 5;
+        test1.insertLast(i);
+        i -= 6;
+        test1.insertLast(i);
+
+
+        int act1 = test1.kthFromEnd(0);
+        int act2 = test1.kthFromEnd(2);
+
+
+        assertEquals(excp1,act1);
+        assertEquals(excp2,act2);
+
+    }
 }

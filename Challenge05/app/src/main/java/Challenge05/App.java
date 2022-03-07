@@ -14,7 +14,7 @@ public class App {
         int value;
 
         // To insert three number to linked list
-        for (int i = 0; i < 1; i++) {
+        for (int i = 0; i <= 3; i++) {
             System.out.println("Is the linked list empty => "+list.isEmpty());
             System.out.println("Please enter a number to add to linked list");
             value = input.nextInt();
@@ -44,6 +44,9 @@ public class App {
         // this line to print out whole linked list
         System.out.println("Your linked list is => "+list.to_string());
 
+        System.out.println("enter the index for element you want to get its value");
+        int k = input.nextInt();
+        System.out.println(list.kthFromEnd(k));
 
         input.close();
 
