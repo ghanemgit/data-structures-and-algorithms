@@ -11,8 +11,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertLinesMatch;
+import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
 
@@ -29,6 +28,68 @@ class AppTest {
         test3 = new LinkedList();
         test4 = new LinkedList();
     }
+
+    ////////////////////////////////////////////////Challenge05\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+    @Test
+    @DisplayName("Insert First Test")
+    void insertFirstTest(){
+
+        //This test includes toString method also because if the toString method doesn't work this test will not pass fine.
+
+        List<String> exceptedList = new ArrayList<String>();
+        List<String> actualList = new ArrayList<String>();
+        String excp1 = "{ 4 } -> { 3 } -> { 2 } -> { 1 } -> null";
+        String excp2 = "{ 1 } -> null";
+
+        //add excepted value to array list
+        exceptedList.add(excp1);
+        exceptedList.add(excp2);
+
+        //Insert first in linked list, these lines' evenness user input process
+        int i = 1;
+        test1.insertFirst(i);
+        i++;
+        test1.insertFirst(i);
+        i++;
+        test1.insertFirst(i);
+        i++;
+        test1.insertFirst(i);
+
+
+        actualList.add(test1.to_string());
+
+        //filling linked list, these lines' evenness user input process
+
+        test2.insertFirst(1);
+
+        //insert the value that will be added to linked list for testing issues
+        actualList.add(test2.to_string());
+
+
+        assertLinesMatch(exceptedList, actualList);
+
+    }
+
+    @Test
+    @DisplayName("Includes Test")
+    void includesTest(){
+
+
+
+        test1.insertLast(1);
+        test1.insertLast(2);
+        test1.insertLast(3);
+        test1.insertLast(4);
+
+        assertTrue(test1.includes(1));
+        assertTrue(test1.includes(4));
+        assertTrue(test1.includes(3));
+        assertFalse(test1.includes(6));
+
+    }
+
+
+    ////////////////////////////////////////////////Challenge06\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
     @Test
     @DisplayName("Insert last Linked list test")
@@ -211,6 +272,8 @@ class AppTest {
         assertLinesMatch(exceptedList, actualList);
     }
 
+    ////////////////////////////////////////////////Challenge07\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
     @Test
     @DisplayName("kth From End Test")
     void kthFromEndTest(){
@@ -233,5 +296,56 @@ class AppTest {
         assertEquals(excp1,act1);
         assertEquals(excp2,act2);
 
+    }
+
+    ////////////////////////////////////////////////Challenge08\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+    @Test
+    @DisplayName("zip Lists Test")
+    void zipListsTest(){
+
+        List<String> exceptedList = new ArrayList<String>();
+        List<String> actualList = new ArrayList<String>();
+        String excp1 = "{ 1 } -> { 5 } -> { 3 } -> { 9 } -> { 2 } -> { 4 } -> null";
+        String excp2 = "{ 1 } -> { 5 } -> { 3 } -> { 9 } -> { 4 } -> null";
+
+        //add excepted value to array list
+        exceptedList.add(excp1);
+        exceptedList.add(excp2);
+
+        //filling linked list, these lines' evenness user input process
+        test1.insertLast(1);
+        test1.insertLast(3);
+        test1.insertLast(2);
+
+
+        //filling linked list, these lines' evenness user input process
+
+        test2.insertLast(5);
+        test2.insertLast(9);
+        test2.insertLast(4);
+
+
+
+
+
+        //filling linked list, these lines' evenness user input process
+        test3.insertLast(1);
+        test3.insertLast(3);
+
+
+
+
+        //filling linked list, these lines' evenness user input process
+        test4.insertLast(5);
+        test4.insertLast(9);
+        test4.insertLast(4);
+
+        LinkedList actual = new LinkedList();
+        actualList.add(actual.zipLists(test1,test2));
+        actualList.add(actual.zipLists(test3,test4));
+        //insert the value and new value that will be added to linked list for testing issues
+
+        assertLinesMatch(exceptedList, actualList);
     }
 }

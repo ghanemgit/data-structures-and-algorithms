@@ -13,6 +13,7 @@ public class LinkedList {
         return (this.head == null);
     }
 
+
     public void insertFirst(int value) {//method to insert value to first of our linked list
 
         Node newNode = new Node(value);//create new node contain the value
@@ -116,7 +117,7 @@ public class LinkedList {
         int secondCounter = 0;
         /*
         when this new counter is reach the k value that will work to stop the loop and let us take the result,
-        that done by simple expression (counter - newCounter) must equal the k value to stop looping.
+        That done by simple expression (counter - newCounter) must equal the k value to stop looping.
          */
 
 
@@ -124,7 +125,7 @@ public class LinkedList {
         if (isEmpty())
             System.out.println("Sorry the linked list is empty");
 
-        else if (k >= 0){
+        else if (k >= 0) {
             //create new pointer and assign it to head value to start from beginning
             Node pointer = this.head;
 
@@ -132,29 +133,76 @@ public class LinkedList {
             if we don't reach the end still to move pointer node after node, Meanwhile increase the counter by
             one each loop to determine the numbers of item we have in our linked list
              */
-            while (pointer.next != null)
-            {
+            while (pointer.next != null) {
                 counter++;
                 pointer = pointer.next;
             }
 
             if (k > counter)
                 System.err.println("Sorry the number you try to get out of range");
-            else if ( k == 0 )
+            else if (k == 0)
                 result = pointer.data;//because the last value for pointer after finish the loop, is the last one in linked list
             else {
                 pointer = this.head;//return the pointer to start(head) point
-                while ((counter-secondCounter) != k){
+                while ((counter - secondCounter) != k) {
                     secondCounter++;
 
-                    pointer =pointer.next;
+                    pointer = pointer.next;
                 }
                 result = pointer.data;
             }
-        }else {
+        } else {
             System.out.println("Sorry, you entered negative number");
         }
 
         return result;
     }
+
+
+    public String zipLists(LinkedList a, LinkedList b) {
+
+        LinkedList result = new LinkedList();//create linked list to store the result
+        Node pointerA = a.head;//create new node to first list
+        Node pointerB = b.head;//create new node to second list
+
+        while (pointerA != null || pointerB != null) {//check if pointer not reach the end
+
+                if (pointerA != null && pointerB != null) {//check if both list has next value
+                    result.insertLast(pointerA.data);//add the value of this node to result list, from list a
+                    result.insertLast(pointerB.data);//add the value of this node to result list, from list b
+                    pointerA = pointerA.next;//move straight ahead
+                    pointerB = pointerB.next;
+                }
+                else if (pointerA != null){//if list a still has node please continue  without work on other list because its at the end.
+                    result.insertLast(pointerA.data);
+                    pointerA = pointerA.next;
+                }
+                else {//if list b still has node please continue  without work on other list because its at the end.
+                    result.insertLast(pointerB.data);
+                    pointerB = pointerB.next;
+                }
+        }
+        return result.to_string();
+    }
+//    public void insertAfter(int value, int newValue) {
+//
+//
+//        if (isEmpty()) {
+//            System.out.println("Your linked list is empty please fill it");
+//            insertFirst(newValue);
+//        } else if (includes(value)) {
+//            Node newNode = new Node();
+//            newNode.data = newValue;
+//            Node temp = this.head;
+//
+//            while (temp != null && temp.data != value) {
+//                temp = temp.next;
+//            }
+//            assert temp != null;
+//            newNode.next = temp.next;
+//            temp.next = newNode;
+//        } else {
+//            System.err.println("Sorry, the number you want insert before is not found");
+//        }
+//    }
 }
