@@ -10,17 +10,29 @@ public class App {
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        LinkedList list = new LinkedList();
+        LinkedList list1 = new LinkedList();
+        LinkedList list2 = new LinkedList();
+        LinkedList listAnswer = new LinkedList();
         int value;
 
         // To insert three number to linked list
-        for (int i = 0; i <= 3; i++) {
-            System.out.println("Is the linked list empty => "+list.isEmpty());
-            System.out.println("Please enter a number to add to linked list");
+        for (int i = 0; i < 3; i++) {
+            System.out.println("Is the linked list1 empty => "+list1.isEmpty());
+
+            System.out.println("Please enter a number to add to linked list1");
             value = input.nextInt();
             //list.insertFirst(value);
             // or insert last method
-            list.insertLast(value);
+            list1.insertLast(value);
+        }
+        for (int i = 0; i < 3; i++) {
+            System.out.println("Is the linked list2 empty => "+list2.isEmpty());
+
+            System.out.println("Please enter a number to add to linked list2");
+            value = input.nextInt();
+            //list.insertFirst(value);
+            // or insert last method
+            list2.insertLast(value);
         }
 
         //this four lines to check If number existing or not(include method)
@@ -42,12 +54,15 @@ public class App {
 //        list.insertAfter(value6,value5);
 
         // this line to print out whole linked list
-        System.out.println("Your linked list is => "+list.to_string());
-
-        System.out.println("enter the index for element you want to get its value");
-        int k = input.nextInt();
-        System.out.println(list.kthFromEnd(k));
-
+        System.out.println("Your linked list1 is => "+list1.to_string());
+        System.out.println("Your linked list1 is => "+list2.to_string());
+//
+//
+////        System.out.println("enter the index for element you want to get its value");
+////        int k = input.nextInt();
+////        System.out.println(list.kthFromEnd(k));
+        String answer = listAnswer.zipLists(list1,list2);
+        System.out.println(answer);
         input.close();
 
     }
