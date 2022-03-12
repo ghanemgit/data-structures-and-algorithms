@@ -6,7 +6,7 @@
 
 ## Whiteboard Process
 
-![BinarySearch](https://user-images.githubusercontent.com/97638932/156354316-7dce9cd2-d029-4077-ad5f-2a6fdd4582ec.png)
+![BinarySearch](Assert/BinarySearch.png)
 
 
 
